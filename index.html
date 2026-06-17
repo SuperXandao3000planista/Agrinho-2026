@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Agrinho 2026 — Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente. Por Gustavo Mendes." />
+  <title>Agrinho 2026 | Agro Forte, Futuro Sustentável</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVEGAÇÃO ===================== -->
+  <nav id="navbar" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Ir ao início">
+        <span class="logo-leaf">🌿</span>
+        <span>AGRINHO<span class="logo-accent">26</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#dashboard" class="nav-link">Impacto</a></li>
+        <li><a href="#pioneers" class="nav-link">Pioneiros</a></li>
+        <li><a href="#simulator" class="nav-link">Simulador</a></li>
+        <li><a href="#quiz" class="nav-link">Quiz</a></li>
+        <li><a href="#footer" class="nav-link nav-tag">#agrinho</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section id="hero" class="hero" aria-label="Seção inicial">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Concurso Agrinho 2026</p>
+        <h1 class="hero-title">
+          <span class="hero-title-line gradient-text">Agro Forte,</span>
+          <span class="hero-title-line gradient-text-alt">Futuro Sustentável</span>
+        </h1>
+        <p class="hero-subtitle">
+          Equilíbrio entre produção e meio ambiente —<br />
+          a tecnologia a serviço da terra.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#dashboard" class="btn btn-primary">Explorar o Impacto</a>
+          <a href="#simulator" class="btn btn-ghost">Abrir Simulador</a>
+        </div>
+      </div>
+
+      <!-- Solo Digital Interativo -->
+      <div class="soil-container" id="soilContainer" aria-label="Solo digital interativo — clique para plantar">
+        <div class="soil-label">Solo Digital — Clique para plantar 🌱</div>
+        <div class="soil-ground" id="soilGround" role="button" tabindex="0" aria-label="Área do solo, clique para criar plantas">
+          <div class="soil-texture" aria-hidden="true"></div>
+          <div id="plantsLayer" class="plants-layer" aria-live="polite" aria-label="Plantas crescendo"></div>
+        </div>
+        <p class="soil-hint" id="soilHint">Você plantou <strong id="plantCount">0</strong> planta(s) — continue!</p>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span class="scroll-arrow"></span>
+        <span class="scroll-text">Rolar</span>
+      </div>
+    </section>
+
+    <!-- ===================== DASHBOARD DE IMPACTO ===================== -->
+    <section id="dashboard" class="section dashboard" aria-labelledby="dashboardTitle">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Dashboard de Impacto</span>
+          <h2 id="dashboardTitle" class="section-title">
+            Sustentabilidade em <span class="gradient-text">Números</span>
+          </h2>
+          <p class="section-desc">
+            O Brasil lidera práticas sustentáveis no agronegócio mundial. Veja os índices reais de adoção tecnológica e preservação ambiental no campo.
+          </p>
+        </header>
+
+        <div class="charts-grid">
+          <article class="chart-card glass-card" aria-label="Indicador de Energia Renovável">
+            <div class="chart-wrap" role="img" aria-label="72% de energia renovável no agro">
+              <div class="donut" id="donutEnergy" data-percent="72" data-color="#00ff88" style="--p:72;--c:#00ff88">
+                <div class="donut-inner">
+                  <span class="donut-value" id="valEnergy">0</span><span class="donut-unit">%</span>
+                  <span class="donut-label">Energia</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart-info">
+              <h3 class="chart-title">Energia Renovável</h3>
+              <p class="chart-desc">Adoção de energia solar e biomassa nas propriedades rurais brasileiras em 2025.</p>
+              <ul class="chart-facts" role="list">
+                <li>☀️ Solar: 48% das fazendas</li>
+                <li>🌿 Biomassa: 24% das usinas</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="chart-card glass-card" aria-label="Indicador de Uso Eficiente da Água">
+            <div class="chart-wrap" role="img" aria-label="85% de eficiência hídrica">
+              <div class="donut" id="donutWater" data-percent="85" data-color="#00cfff" style="--p:85;--c:#00cfff">
+                <div class="donut-inner">
+                  <span class="donut-value" id="valWater">0</span><span class="donut-unit">%</span>
+                  <span class="donut-label">Água</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart-info">
+              <h3 class="chart-title">Eficiência Hídrica</h3>
+              <p class="chart-desc">Sistemas de irrigação inteligente que economizam água no campo usando sensores IoT.</p>
+              <ul class="chart-facts" role="list">
+                <li>💧 Gotejamento: 61% das lavouras</li>
+                <li>📡 IoT hídrico: +24% eficiência</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="chart-card glass-card" aria-label="Indicador de Saúde do Solo">
+            <div class="chart-wrap" role="img" aria-label="68% de solo saudável">
+              <div class="donut" id="donutSoil" data-percent="68" data-color="#bcff00" style="--p:68;--c:#bcff00">
+                <div class="donut-inner">
+                  <span class="donut-value" id="valSoil">0</span><span class="donut-unit">%</span>
+                  <span class="donut-label">Solo</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart-info">
+              <h3 class="chart-title">Solo Saudável</h3>
+              <p class="chart-desc">Práticas como plantio direto e rotação de culturas preservando a biota do solo.</p>
+              <ul class="chart-facts" role="list">
+                <li>🌾 Plantio direto: 68% das áreas</li>
+                <li>♻️ Rotação de culturas: 52%</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="stats-row" aria-label="Estatísticas do agronegócio brasileiro">
+          <div class="stat-item">
+            <span class="stat-number" data-target="215" id="statFarms">0</span>
+            <span class="stat-unit">Mi</span>
+            <span class="stat-label">Hectares produtivos</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="26" id="statGDP">0</span>
+            <span class="stat-unit">%</span>
+            <span class="stat-label">do PIB nacional</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="173" id="statCountries">0</span>
+            <span class="stat-unit"></span>
+            <span class="stat-label">Países abastecidos</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="66" id="statForest">0</span>
+            <span class="stat-unit">%</span>
+            <span class="stat-label">Vegetação nativa preservada</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PIONEIROS ===================== -->
+    <section id="pioneers" class="section pioneers" aria-labelledby="pioneersTitle">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Galeria de Pioneiros</span>
+          <h2 id="pioneersTitle" class="section-title">
+            Gigantes que <span class="gradient-text">Transformaram</span> o Campo
+          </h2>
+          <p class="section-desc">
+            Cientistas e líderes que uniram ciência, tecnologia e natureza para construir o agronegócio mais moderno do mundo.
+          </p>
+        </header>
+
+        <div class="pioneers-grid">
+          <article class="pioneer-card glass-card" role="button" tabindex="0" data-id="paolinelli" aria-label="Ver detalhes sobre Alysson Paolinelli">
+            <div class="pioneer-avatar" aria-hidden="true" style="--avatar-color:#00ff88">
+              <span class="pioneer-initials">AP</span>
+              <div class="pioneer-badge">🏆</div>
+            </div>
+            <div class="pioneer-info">
+              <h3 class="pioneer-name">Alysson Paolinelli</h3>
+              <span class="pioneer-role">Ministro da Agricultura · Agronomista</span>
+              <p class="pioneer-teaser">Pai da agricultura tropical — revolucionou o Cerrado e ganhou o Nobel do Alimento.</p>
+            </div>
+            <span class="pioneer-arrow" aria-hidden="true">→</span>
+          </article>
+
+          <article class="pioneer-card glass-card" role="button" tabindex="0" data-id="doebereiner" aria-label="Ver detalhes sobre Johanna Döbereiner">
+            <div class="pioneer-avatar" aria-hidden="true" style="--avatar-color:#00cfff">
+              <span class="pioneer-initials">JD</span>
+              <div class="pioneer-badge">🔬</div>
+            </div>
+            <div class="pioneer-info">
+              <h3 class="pioneer-name">Johanna Döbereiner</h3>
+              <span class="pioneer-role">Microbiologista · Pesquisadora da Embrapa</span>
+              <p class="pioneer-teaser">Descobriu a fixação biológica de nitrogênio — economizando bilhões em fertilizantes químicos.</p>
+            </div>
+            <span class="pioneer-arrow" aria-hidden="true">→</span>
+          </article>
+
+          <article class="pioneer-card glass-card" role="button" tabindex="0" data-id="embrapa" aria-label="Ver detalhes sobre a Embrapa">
+            <div class="pioneer-avatar" aria-hidden="true" style="--avatar-color:#bcff00">
+              <span class="pioneer-initials">EM</span>
+              <div class="pioneer-badge">🌾</div>
+            </div>
+            <div class="pioneer-info">
+              <h3 class="pioneer-name">Embrapa</h3>
+              <span class="pioneer-role">Empresa Brasileira de Pesquisa Agropecuária</span>
+              <p class="pioneer-teaser">50 anos de pesquisa que transformaram o Brasil em potência alimentar global.</p>
+            </div>
+            <span class="pioneer-arrow" aria-hidden="true">→</span>
+          </article>
+
+          <article class="pioneer-card glass-card" role="button" tabindex="0" data-id="wangari" aria-label="Ver detalhes sobre Wangari Maathai">
+            <div class="pioneer-avatar" aria-hidden="true" style="--avatar-color:#ff6b35">
+              <span class="pioneer-initials">WM</span>
+              <div class="pioneer-badge">☮️</div>
+            </div>
+            <div class="pioneer-info">
+              <h3 class="pioneer-name">Wangari Maathai</h3>
+              <span class="pioneer-role">Nobel da Paz · Ativista Ambiental</span>
+              <p class="pioneer-teaser">Fundou o Movimento Cinturão Verde e plantou mais de 50 milhões de árvores na África.</p>
+            </div>
+            <span class="pioneer-arrow" aria-hidden="true">→</span>
+          </article>
+
+          <article class="pioneer-card glass-card" role="button" tabindex="0" data-id="borlaug" aria-label="Ver detalhes sobre Norman Borlaug">
+            <div class="pioneer-avatar" aria-hidden="true" style="--avatar-color:#9b59b6">
+              <span class="pioneer-initials">NB</span>
+              <div class="pioneer-badge">🌿</div>
+            </div>
+            <div class="pioneer-info">
+              <h3 class="pioneer-name">Norman Borlaug</h3>
+              <span class="pioneer-role">Nobel da Paz · Pai da Revolução Verde</span>
+              <p class="pioneer-teaser">Desenvolveu variedades de trigo de alto rendimento que salvaram mais de 1 bilhão de pessoas da fome.</p>
+            </div>
+            <span class="pioneer-arrow" aria-hidden="true">→</span>
+          </article>
+
+          <article class="pioneer-card glass-card" role="button" tabindex="0" data-id="marina" aria-label="Ver detalhes sobre Marina Silva">
+            <div class="pioneer-avatar" aria-hidden="true" style="--avatar-color:#e74c3c">
+              <span class="pioneer-initials">MS</span>
+              <div class="pioneer-badge">🌳</div>
+            </div>
+            <div class="pioneer-info">
+              <h3 class="pioneer-name">Marina Silva</h3>
+              <span class="pioneer-role">Ministra do Meio Ambiente · Ativista</span>
+              <p class="pioneer-teaser">Reduziu o desmatamento da Amazônia em 83% durante sua gestão no Ministério do Meio Ambiente.</p>
+            </div>
+            <span class="pioneer-arrow" aria-hidden="true">→</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SIMULADOR ===================== -->
+    <section id="simulator" class="section simulator" aria-labelledby="simulatorTitle">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Simulador Interativo</span>
+          <h2 id="simulatorTitle" class="section-title">
+            Encontre o <span class="gradient-text">Equilíbrio</span> Perfeito
+          </h2>
+          <p class="section-desc">
+            Ajuste os controles e descubra como tecnologia e preservação podem coexistir para um agro verdadeiramente sustentável.
+          </p>
+        </header>
+
+        <div class="sim-layout glass-card">
+          <div class="sim-controls" role="group" aria-labelledby="simControlsLabel">
+            <h3 id="simControlsLabel" class="sim-panel-title">⚙️ Painel de Controle</h3>
+
+            <div class="sim-slider-group">
+              <label for="sliderTech" class="sim-label">
+                <span>🤖 Tecnologia</span>
+                <span class="sim-val" id="techVal">50</span><span>%</span>
+              </label>
+              <input type="range" id="sliderTech" class="sim-range" min="0" max="100" value="50" aria-label="Nível de tecnologia agrícola" />
+              <div class="range-track-labels" aria-hidden="true"><span>Tradicional</span><span>High-Tech</span></div>
+            </div>
+
+            <div class="sim-slider-group">
+              <label for="sliderPres" class="sim-label">
+                <span>🌿 Preservação</span>
+                <span class="sim-val" id="presVal">50</span><span>%</span>
+              </label>
+              <input type="range" id="sliderPres" class="sim-range sim-range-green" min="0" max="100" value="50" aria-label="Nível de preservação ambiental" />
+              <div class="range-track-labels" aria-hidden="true"><span>Exploração</span><span>Preservação</span></div>
+            </div>
+
+            <div class="sim-slider-group">
+              <label for="sliderArea" class="sim-label">
+                <span>📐 Área Cultivada</span>
+                <span class="sim-val" id="areaVal">50</span><span>%</span>
+              </label>
+              <input type="range" id="sliderArea" class="sim-range sim-range-lime" min="0" max="100" value="50" aria-label="Percentual de área cultivada" />
+              <div class="range-track-labels" aria-hidden="true"><span>Mínima</span><span>Máxima</span></div>
+            </div>
+
+            <div class="sim-slider-group">
+              <label for="sliderWater" class="sim-label">
+                <span>💧 Gestão Hídrica</span>
+                <span class="sim-val" id="waterVal">50</span><span>%</span>
+              </label>
+              <input type="range" id="sliderWater" class="sim-range sim-range-blue" min="0" max="100" value="50" aria-label="Nível de gestão hídrica" />
+              <div class="range-track-labels" aria-hidden="true"><span>Básica</span><span>Avançada</span></div>
+            </div>
+
+            <button class="btn btn-primary btn-full" id="simReset">↺ Resetar Simulação</button>
+          </div>
+
+          <div class="sim-results" aria-live="polite" aria-label="Resultado da simulação">
+            <h3 class="sim-panel-title">📊 Resultado da Fazenda</h3>
+
+            <div class="sim-score-circle" id="simScoreCircle" role="img" aria-label="Pontuação geral da fazenda">
+              <svg class="sim-score-svg" viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="50" class="score-track" />
+                <circle cx="60" cy="60" r="50" class="score-fill" id="scoreArc" stroke-dasharray="314" stroke-dashoffset="314" />
+              </svg>
+              <div class="sim-score-text">
+                <span class="sim-score-num" id="simScoreNum">50</span>
+                <span class="sim-score-label">pontos</span>
+              </div>
+            </div>
+
+            <div class="sim-status" id="simStatus">
+              <div class="status-badge" id="statusBadge">⚖️ Equilibrado</div>
+              <p class="status-msg" id="statusMsg">Ajuste os controles para ver o impacto no seu campo.</p>
+            </div>
+
+            <div class="sim-metrics">
+              <div class="metric-row">
+                <span class="metric-icon">🌾</span>
+                <span class="metric-name">Produtividade</span>
+                <div class="metric-bar"><div class="metric-fill" id="mProd"></div></div>
+                <span class="metric-pct" id="mProdVal">50%</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-icon">🌍</span>
+                <span class="metric-name">Sustentabilidade</span>
+                <div class="metric-bar"><div class="metric-fill metric-fill-green" id="mSust"></div></div>
+                <span class="metric-pct" id="mSustVal">50%</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-icon">💰</span>
+                <span class="metric-name">Rentabilidade</span>
+                <div class="metric-bar"><div class="metric-fill metric-fill-lime" id="mRent"></div></div>
+                <span class="metric-pct" id="mRentVal">50%</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-icon">♻️</span>
+                <span class="metric-name">Carbono Neutro</span>
+                <div class="metric-bar"><div class="metric-fill metric-fill-blue" id="mCarbon"></div></div>
+                <span class="metric-pct" id="mCarbonVal">50%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUIZ ===================== -->
+    <section id="quiz" class="section quiz" aria-labelledby="quizTitle">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Quiz de Conhecimento</span>
+          <h2 id="quizTitle" class="section-title">
+            Teste seus <span class="gradient-text">Conhecimentos</span>
+          </h2>
+          <p class="section-desc">
+            Quanto você sabe sobre agronegócio sustentável? Responda as 6 perguntas e descubra seu nível!
+          </p>
+        </header>
+
+        <div class="quiz-container glass-card" id="quizContainer">
+          <div class="quiz-progress-bar" aria-label="Progresso do quiz">
+            <div class="quiz-progress-fill" id="quizProgressFill"></div>
+          </div>
+
+          <div class="quiz-header">
+            <span class="quiz-question-num" id="quizNum">Pergunta 1 de 6</span>
+            <span class="quiz-score-live">Pontos: <strong id="liveScore">0</strong></span>
+          </div>
+
+          <div id="quizArea">
+            <div class="quiz-question-block" id="questionBlock" aria-live="polite">
+              <p class="quiz-question" id="questionText"></p>
+              <div class="quiz-options" id="optionsGrid" role="list"></div>
+              <div class="quiz-feedback" id="quizFeedback" aria-live="assertive"></div>
+            </div>
+          </div>
+
+          <div id="quizResult" class="quiz-result hidden" aria-live="polite">
+            <div class="result-icon" id="resultIcon" aria-hidden="true">🏆</div>
+            <h3 class="result-title" id="resultTitle">Parabéns!</h3>
+            <p class="result-desc" id="resultDesc"></p>
+            <div class="result-score-display">
+              <span id="finalScore">0</span><span> / 6 acertos</span>
+            </div>
+            <button class="btn btn-primary" id="quizRestart">🔄 Jogar novamente</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="section cta-section" aria-label="Chamada para ação final">
+      <div class="container">
+        <div class="cta-inner glass-card">
+          <div class="cta-decoration" aria-hidden="true">
+            <div class="cta-orb cta-orb-1"></div>
+            <div class="cta-orb cta-orb-2"></div>
+            <div class="cta-orb cta-orb-3"></div>
+          </div>
+          <h2 class="cta-title">O futuro do campo <span class="gradient-text">começa agora.</span></h2>
+          <p class="cta-sub">Cada escolha sustentável hoje é a safra de amanhã. O equilíbrio entre tecnologia e natureza não é apenas possível — é necessário.</p>
+          <div class="cta-tag-display" aria-label="Hashtag do concurso">
+            <span class="hashtag-big">#agrinho</span>
+            <span class="hashtag-year">2026</span>
+          </div>
+          <a href="#hero" class="btn btn-primary btn-lg">Voltar ao topo ↑</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">🌿 AGRINHO<span class="logo-accent">26</span></p>
+          <p class="footer-tagline">Agro forte, futuro sustentável</p>
+          <p class="footer-hashtag" aria-label="Hashtag oficial do concurso">#agrinho</p>
+        </div>
+        <div class="footer-info">
+          <h4 class="footer-heading">Sobre o Projeto</h4>
+          <p>Este site foi criado para o Concurso Agrinho 2026, com o tema <em>"Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente"</em>.</p>
+        </div>
+        <div class="footer-author">
+          <h4 class="footer-heading">Créditos</h4>
+          <p><strong>Estudante:</strong> Gustavo Mendes</p>
+          <p><strong>Concurso:</strong> Agrinho 2026</p>
+          <p><strong>Tema:</strong> Sustentabilidade Agrícola</p>
+          <p><strong>Tecnologias:</strong> HTML5 · CSS3 · JavaScript</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Gustavo Mendes — Concurso Agrinho | <span class="footer-hashtag-inline">#agrinho</span></p>
+        <p class="footer-disclaimer">Desenvolvido com HTML5 semântico, CSS3 e JavaScript puro — sem frameworks externos.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== MODAL DOS PIONEIROS ===================== -->
+  <div id="pioneerModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-box glass-card">
+      <button class="modal-close" id="modalClose" aria-label="Fechar modal">✕</button>
+      <div class="modal-avatar" id="modalAvatar" aria-hidden="true">
+        <span id="modalInitials"></span>
+        <span id="modalBadge"></span>
+      </div>
+      <h2 id="modalTitle" class="modal-title"></h2>
+      <span class="modal-role" id="modalRole"></span>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-achievements" id="modalAchievements" aria-label="Conquistas"></div>
+    </div>
+  </div>
+
+  <!-- ===================== TOAST ===================== -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
